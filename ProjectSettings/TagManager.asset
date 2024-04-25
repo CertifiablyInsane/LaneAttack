@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags: []
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - PlayerTeam
+  - EnemyTeam
+  - PlayerObstacle
+  - EnemyObstacle
+  - Projectile
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Background
+    uniqueID: 2813682175
+    locked: 0
+  - name: LaneTop
+    uniqueID: 3252453367
+    locked: 0
+  - name: LaneMid
+    uniqueID: 2514696285
+    locked: 0
+  - name: LaneBot
+    uniqueID: 1220979583
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
