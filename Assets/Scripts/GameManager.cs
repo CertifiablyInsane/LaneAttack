@@ -13,8 +13,19 @@ public class GameManager : PersistentSingleton<GameManager>
     // Events
     public delegate void SaveEvent(string username);
     public static event SaveEvent OnChangedUser;
+    public static string SAVEFILE_DATAPATH { get; private set; }
+    // Savefile Filename changes based on current file
+    public static string PERSISTENT_DATAPATH { get; private set; }
+    public static string PERSISTENT_FILENAME {  get; private set; }
     private new void Awake()
     {
+        SAVEFILE_DATAPATH = Path.Combine(Application.persistentDataPath, "Resources");
+        PERSISTENT_DATAPATH = Path.Combine(Application.persistentDataPath, "Resources", "Persistent");
+        PERSISTENT_FILENAME = JsonFilename("PersistentInfo");
+        if (!Directory.Exists(SAVEFILE_DATAPATH))
+            Directory.CreateDirectory(SAVEFILE_DATAPATH);
+        if (!Directory.Exists(PERSISTENT_DATAPATH)) 
+            Directory.CreateDirectory(PERSISTENT_DATAPATH);
         base.Awake();
     }
     private void Start()
@@ -47,7 +58,8 @@ public class GameManager : PersistentSingleton<GameManager>
             points = 0,
         };
         string json = JsonUtility.ToJson(newSave);
-        File.WriteAllText(Application.dataPath + "/Resources/" + username + ".json", json);
+        string fileName = JsonFilename(username);
+        File.WriteAllText(Path.Combine(SAVEFILE_DATAPATH, fileName), json);
         saveInfo = newSave;
         OnChangedUser?.Invoke(username);
         Debug.Log("Created new Save File '" + username + ".json'");
@@ -60,17 +72,19 @@ public class GameManager : PersistentSingleton<GameManager>
             currentUsername = saveInfo.username,
         };
         string json = JsonUtility.ToJson(info);
-        File.WriteAllText(Application.dataPath + "/Resources/Persistent/PersistentInfo.json", json);
+        File.WriteAllText(Path.Combine(PERSISTENT_DATAPATH, PERSISTENT_FILENAME), json);
         // Save File
         json = JsonUtility.ToJson(saveInfo);
-        File.WriteAllText(Application.dataPath + "/Resources/" + saveInfo.username + ".json", json);
+        string sFileName = JsonFilename(saveInfo.username);
+        File.WriteAllText(Path.Combine(SAVEFILE_DATAPATH, sFileName), json);
         Debug.Log("Saved File '" + saveInfo.username + ".json'");
     }
     public static void Load(string username)
     {
         try
         {
-            string json = File.ReadAllText(Application.dataPath + "/Resources/" + username + ".json");
+            string fileName = JsonFilename(username);
+            string json = File.ReadAllText(Path.Combine(SAVEFILE_DATAPATH, fileName));
             SaveInfo readSave = JsonUtility.FromJson<SaveInfo>(json);
             if( readSave != null )
             {
@@ -97,7 +111,7 @@ public class GameManager : PersistentSingleton<GameManager>
         Debug.Log("Loading Persistent Info");
         try
         {
-            string json = File.ReadAllText(Application.dataPath + "/Resources/Persistent/PersistentInfo.json");
+            string json = File.ReadAllText(Path.Combine(PERSISTENT_DATAPATH, PERSISTENT_FILENAME));
             PersistentInfo readInfo = JsonUtility.FromJson<PersistentInfo>(json);
             Load(readInfo.currentUsername);
         }
@@ -105,7 +119,7 @@ public class GameManager : PersistentSingleton<GameManager>
         {
             Debug.LogWarning("Could not find PersistentInfo.json! Creating a default one.");
             // Check to see if a save file exists
-            var dInfo = new DirectoryInfo(Application.dataPath + "/Resources/");
+            var dInfo = new DirectoryInfo(SAVEFILE_DATAPATH);
             FileInfo[] files = dInfo.GetFiles("*.json");
             if (files.Length > 0)
             {
@@ -122,7 +136,31 @@ public class GameManager : PersistentSingleton<GameManager>
                 currentUsername = saveInfo.username,
             };
             string json = JsonUtility.ToJson(pInfo);
-            File.WriteAllText(Application.dataPath + "/Resources/Persistent/PersistentInfo.json", json);
+            File.WriteAllText(Path.Combine(PERSISTENT_DATAPATH, PERSISTENT_FILENAME), json);
         }
+    }
+    private static string JsonFilename(string file)
+    {
+        return file + ".json";
+    }
+    public static string[] GetAllUsernames()
+    {
+        var dInfo = new DirectoryInfo(SAVEFILE_DATAPATH);
+        FileInfo[] files = dInfo.GetFiles("*.json");
+        string[] usernames = new string[files.Length];
+        for (int i = 0; i < files.Length; i++)
+        {
+            string json = File.ReadAllText(Path.Combine(SAVEFILE_DATAPATH, files[i].Name));
+            SaveInfo readSave = JsonUtility.FromJson<SaveInfo>(json);
+            if (readSave != null)
+            {
+                usernames[i] = readSave.username;
+            }
+            else
+            {
+                Debug.LogError("Failed to read file " + files[i].Name);
+            }
+        }
+        return usernames;
     }
 }

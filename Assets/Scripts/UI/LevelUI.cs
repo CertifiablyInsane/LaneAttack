@@ -18,7 +18,9 @@ public class LevelUI : Singleton<LevelUI>
     [SerializeField] private ScreenToggle overlayScreenToggle;
     [SerializeField] private AdvancedButton failRestartButton;
     [SerializeField] private AdvancedButton failLevelSelectButton;
+    [SerializeField] private AdvancedButton failUpgradesButton;
     [SerializeField] private AdvancedButton completeContinueButton;
+    [SerializeField] private AdvancedButton completeUpgradesButton;
     [SerializeField] private AdvancedButton pauseMenuButton;
     [SerializeField] private AdvancedButton pauseRestartButton;
     [SerializeField] private AdvancedButton pauseLevelSelectButton;
@@ -29,7 +31,9 @@ public class LevelUI : Singleton<LevelUI>
         levelNameUI.text = "Level " + GameManager.currentLevel.levelName;
         failRestartButton.AddOnClick(RestartButtonPress);           // Fail Menu => Restart Level
         failLevelSelectButton.AddOnClick(LevelSelectButtonPress);   // Fail Menu => Level Select
+        failUpgradesButton.AddOnClick(UpgradesButtonPress);         // Fail Menu => Upgrades Station
         completeContinueButton.AddOnClick(LevelSelectButtonPress);  // Complete Menu => Level Select
+        completeUpgradesButton.AddOnClick(UpgradesButtonPress);     // Complete Menu => Upgrades Station
         pauseMenuButton.AddOnClick(PauseMenuButtonPress);           // Pause Menu => Open Menu
         pauseRestartButton.AddOnClick(RestartButtonPress);          // Pause Menu => Restart Level
         pauseLevelSelectButton.AddOnClick(LevelSelectButtonPress);  // Pause Menu => Level Select
@@ -74,5 +78,10 @@ public class LevelUI : Singleton<LevelUI>
     {
         GameManager.UnPause();
         overlayScreenToggle.DisableAll();
+    }
+    public void UpgradesButtonPress(AdvancedButton _)
+    {
+        // SceneLoader.Instance.LoadScene("Upgrades")
+        Debug.LogWarning("Upgrades Menu Not Implemented! Will not load scene.");
     }
 }

@@ -21,17 +21,15 @@ public class UserSelect : MonoBehaviour
         }
         buttons.Clear();
         fileNames.Clear();
-        var info = new DirectoryInfo(Application.dataPath + "/Resources/");
-        FileInfo[] files = info.GetFiles("*.json");
-        for (int i = 0; i < files.Length; i++)
+        string[] usernames = GameManager.GetAllUsernames();
+        for (int i = 0; i < usernames.Length; i++)
         {
             AdvancedButton b = Instantiate(userSelectButton, content);
-            string name = files[i].Name.Replace(".json", "");
-            b.SetText(name);
+            b.SetText(usernames[i]);
             b.SetID(i);
             b.AddOnClick(SelectUser);
             buttons.Add(b);
-            fileNames.Add(name);
+            fileNames.Add(usernames[i]);
 
             if(GameManager.saveInfo != null && GameManager.saveInfo.username == name)
             {

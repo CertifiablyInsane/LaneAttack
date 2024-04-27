@@ -7,9 +7,11 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI currentUserText;
+    [SerializeField] private TextMeshProUGUI versionText;
     private void Start()
     {
         OnChangeUser(GameManager.saveInfo.username);
+        versionText.text = "Build : " + Application.version;
     }
     private void OnEnable()
     {

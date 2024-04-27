@@ -35,30 +35,40 @@ public class LevelManager : Singleton<LevelManager>
 
     private void Start()
     {
-        LevelUI.Instance.GenerateUnitButtons(unitData);
-
         spawnAlgorithm = GetComponent<EnemySpawnAlgorithm>();
-        spawnAlgorithm.InitializeAndStart(GameManager.currentLevel);
+
+        LevelUI.Instance.GenerateUnitButtons(unitData);
     }
     private void OnEnable()
     {
         Enemy.OnEnemyKilled += OnEnemyKilled;
         Player.OnPlayerKilled += OnPlayerKilled;
+        Obstacle.OnEnemyBaseKilled += OnEnemyBaseKilled;
+        Obstacle.OnPlayerBaseKilled += OnPlayerBaseKilled;
     }
     private void OnDisable()
     {
         Enemy.OnEnemyKilled -= OnEnemyKilled;
         Player.OnPlayerKilled -= OnPlayerKilled;
+        Obstacle.OnEnemyBaseKilled -= OnEnemyBaseKilled;
+        Obstacle.OnPlayerBaseKilled -= OnPlayerBaseKilled;
     }
     private void OnEnemyKilled(Enemy enemy)
     {
         AddMoney(enemy.moneyOnKill);
     }
-    private void OnPlayerKilled(Player player)
+    private void OnPlayerKilled(Player _)
     {
         FailLevel();
     }
-
+    private void OnPlayerBaseKilled(Obstacle _)
+    {
+        FailLevel();
+    }
+    private void OnEnemyBaseKilled(Obstacle _)
+    {
+        CompleteLevel();
+    }
     public void AddMoney(int amount)
     {
         money += amount;

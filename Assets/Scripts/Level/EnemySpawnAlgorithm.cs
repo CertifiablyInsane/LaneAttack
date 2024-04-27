@@ -12,9 +12,9 @@ public class EnemySpawnAlgorithm : Singleton<EnemySpawnAlgorithm>
     bool _passedIntro = false;
     bool _doneSpawningWave = false;
 
-    public void InitializeAndStart(LevelData data)
+    public void Start()
     {
-        this.data = data;
+        data = GameManager.currentLevel;
         random = new Random(data.levelNumber);
         StartCoroutine(C_WaveLoop());
     }
