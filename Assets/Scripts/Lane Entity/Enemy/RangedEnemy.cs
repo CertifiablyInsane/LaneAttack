@@ -24,8 +24,6 @@ public class RangedEnemy : Enemy, IShootsProjectile
     protected new void Start()
     {
         base.Start();
-        AssignAnimationIDs();
-        AssignAnimationEvents();
     }
 
     void Update()
@@ -59,7 +57,7 @@ public class RangedEnemy : Enemy, IShootsProjectile
         _speed = LerpSpeed(targetSpeed, _speed);
         rb.velocity = new(_speed, 0);
     }
-    protected IEnumerator Attack()
+    protected override IEnumerator Attack()
     {
         while (_isAttacking)
         {
@@ -69,11 +67,11 @@ public class RangedEnemy : Enemy, IShootsProjectile
             yield return null;
         }
     }
-    private void AssignAnimationIDs()
+    protected override void AssignAnimationIDs()
     {
         _animAttacking_B = Animator.StringToHash("Attacking");
     }
-    private void AssignAnimationEvents()
+    protected override void AssignAnimationEvents()
     {
         animatorListener.OnEvent01 += Anim_SpawnProjectileFramePassed;
     }

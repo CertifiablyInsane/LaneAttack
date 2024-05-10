@@ -21,6 +21,3 @@ MonoBehaviour:
   - enemy: {fileID: 11400000, guid: 369733617256a144b8a386cbf2bea443, type: 2}
     weight: 8
     spawnType: 0
-  - enemy: {fileID: 11400000, guid: 21264ec3597bd9d47a988a0dd20f45dc, type: 2}
-    weight: 1
-    spawnType: 2

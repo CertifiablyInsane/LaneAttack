@@ -9,11 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3367685353191679796}
-  - component: {fileID: 4505742025936822799}
   - component: {fileID: 8353150153336076426}
   - component: {fileID: 7929469603494065682}
+  - component: {fileID: 4004184603614064766}
   m_Layer: 7
-  m_Name: Basic Enemy 2
+  m_Name: Dodger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36,31 +36,6 @@ Transform:
   - {fileID: 7150542391370034819}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4505742025936822799
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2564107368727496018}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 030f7b987b01c5843b092f8ce6009177, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 2.5
-  acceleration: 10
-  maxHealth: 5
-  spriteRoot: {fileID: 4493596441085423372}
-  healthBar: {fileID: 6475041169679381170}
-  attackDistance: 2
-  attackDamage: 2
-  playerTeamMask:
-    serializedVersion: 2
-    m_Bits: 320
-  moneyOnKill: 2
-  animator: {fileID: 3887764079576385323}
-  animatorListener: {fileID: 3109411008393229826}
 --- !u!61 &8353150153336076426
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -133,6 +108,32 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 6
+--- !u!114 &4004184603614064766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2564107368727496018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46c6bcab834c1f04ab1cc5d3d5b1409f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3.5
+  acceleration: 10
+  maxHealth: 6
+  spriteRoot: {fileID: 4493596441085423372}
+  healthBar: {fileID: 6475041169679381170}
+  attackDistance: 2
+  attackDamage: 2
+  playerTeamMask:
+    serializedVersion: 2
+    m_Bits: 320
+  moneyOnKill: 3
+  animator: {fileID: 3887764079576385323}
+  animatorListener: {fileID: 3109411008393229826}
+  dodgeChance: 0.4
 --- !u!1 &4493596441085423372
 GameObject:
   m_ObjectHideFlags: 0
@@ -177,7 +178,7 @@ Animator:
   m_GameObject: {fileID: 4493596441085423372}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: aaee68ce63f41fc4991778a9bf9bd4bf, type: 2}
+  m_Controller: {fileID: 9100000, guid: 90b4faf349213644d9def6247589547a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -211,7 +212,7 @@ GameObject:
   - component: {fileID: 5087293045459352337}
   - component: {fileID: 8722151976215991980}
   m_Layer: 7
-  m_Name: Pentagon
+  m_Name: Triangle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -226,8 +227,8 @@ Transform:
   m_GameObject: {fileID: 6279323880006150591}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 1.7617188, z: 0}
+  m_LocalScale: {x: 1, y: -1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2404678392529423683}

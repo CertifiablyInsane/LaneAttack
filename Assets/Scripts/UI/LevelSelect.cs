@@ -9,12 +9,14 @@ public class LevelSelect : MonoBehaviour
     [Header("Pointers")]
     [SerializeField] private Transform levelSelectButtonContainer;
     [SerializeField] private AdvancedButton backButton;
+    [SerializeField] private AdvancedButton upgradesButton;
     [Header("Prefabs")]
     [SerializeField] AdvancedButton levelSelectButton;
 
     private void Start()
     {
-        backButton.AddOnClick(Back);
+        backButton.AddOnClick(BackPressed);
+        upgradesButton.AddOnClick(UpgradesPressed);
         GenerateMenu();
     }
     public void GenerateMenu()
@@ -41,8 +43,12 @@ public class LevelSelect : MonoBehaviour
     {
         GameManager.LoadLevel(levels[button.id]);
     }
-    public void Back(AdvancedButton _)
+    public void BackPressed(AdvancedButton _)
     {
         SceneLoader.Instance.LoadScene("Main Menu");
+    }
+    public void UpgradesPressed(AdvancedButton _)
+    {
+        SceneLoader.Instance.LoadScene("Upgrades");
     }
 }

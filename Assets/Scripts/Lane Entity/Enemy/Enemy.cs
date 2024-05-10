@@ -24,6 +24,8 @@ public abstract class Enemy : LaneEntity
     {
         base.Start();
         rb = GetComponent<Rigidbody2D>();
+        AssignAnimationIDs();
+        AssignAnimationEvents();
     }
     protected LaneEntity CheckForTarget()
     {
@@ -40,4 +42,7 @@ public abstract class Enemy : LaneEntity
         Destroy(gameObject);
     }
     protected abstract void Move();
+    protected abstract IEnumerator Attack();
+    protected abstract void AssignAnimationIDs();
+    protected abstract void AssignAnimationEvents();
 }

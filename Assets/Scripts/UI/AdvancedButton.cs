@@ -36,16 +36,20 @@ public class AdvancedButton : MonoBehaviour
     {
         this.id = id;
     }
+    public void SetColor(Color color)
+    {
+        background.color = color;
+    }
     public void Enable()
     {
         enabled = true;
         button.enabled = true;
-        background.color = COLOR_ENABLED;
+        SetColor(COLOR_ENABLED);
     }
     public void Disable()
     {
         enabled = false;
         button.enabled = false;
-        background.color = COLOR_DISABLED;
+        SetColor(COLOR_ENABLED);
     }
 }
