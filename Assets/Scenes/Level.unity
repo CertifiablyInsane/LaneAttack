@@ -299,6 +299,8 @@ MonoBehaviour:
   pauseRestartButton: {fileID: 1870386990}
   pauseLevelSelectButton: {fileID: 1870386989}
   pauseResumeButton: {fileID: 1870386988}
+  levelCompletePointsText: {fileID: 1126444630}
+  levelFailPointsText: {fileID: 1143725632}
 --- !u!1 &178260710
 GameObject:
   m_ObjectHideFlags: 0
@@ -1419,6 +1421,28 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9149564611651251762, guid: 3d19684c8d7b7d2429891e3d4693f6ba, type: 3}
   m_PrefabInstance: {fileID: 1069452356}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1126444630 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4193921230004480431, guid: 483264fe34280514b90ef660b307df70, type: 3}
+  m_PrefabInstance: {fileID: 5624464170549822762}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1143725632 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 46557058649301790, guid: a28c07a2f8b3f36469b5084748e04247, type: 3}
+  m_PrefabInstance: {fileID: 448312507}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1152909046
 GameObject:
   m_ObjectHideFlags: 0
@@ -3234,27 +3258,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1054645534766141842, guid: 483264fe34280514b90ef660b307df70, type: 3}
       propertyPath: m_SizeDelta.x
-      value: -527.1161
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1054645534766141842, guid: 483264fe34280514b90ef660b307df70, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 344
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2025282133651681580, guid: 483264fe34280514b90ef660b307df70, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2025282133651681580, guid: 483264fe34280514b90ef660b307df70, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2025282133651681580, guid: 483264fe34280514b90ef660b307df70, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 276.44196
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2025282133651681580, guid: 483264fe34280514b90ef660b307df70, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -172
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2980095296032864242, guid: 483264fe34280514b90ef660b307df70, type: 3}
       propertyPath: m_AnchorMax.y
@@ -3300,13 +3324,37 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 4129154092995426504, guid: 483264fe34280514b90ef660b307df70, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4129154092995426504, guid: 483264fe34280514b90ef660b307df70, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4129154092995426504, guid: 483264fe34280514b90ef660b307df70, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4129154092995426504, guid: 483264fe34280514b90ef660b307df70, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4193921230004480431, guid: 483264fe34280514b90ef660b307df70, type: 3}
+      propertyPath: m_text
+      value: <POINTS_AMOUNT>
+      objectReference: {fileID: 0}
+    - target: {fileID: 4193921230004480431, guid: 483264fe34280514b90ef660b307df70, type: 3}
+      propertyPath: m_fontStyle
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5122200323506698945, guid: 483264fe34280514b90ef660b307df70, type: 3}
       propertyPath: m_Name
       value: Level Complete Screen
       objectReference: {fileID: 0}
     - target: {fileID: 5122200323506698945, guid: 483264fe34280514b90ef660b307df70, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5883338529772943324, guid: 483264fe34280514b90ef660b307df70, type: 3}
       propertyPath: m_SizeDelta.x

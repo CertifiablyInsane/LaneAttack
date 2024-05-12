@@ -27,6 +27,6 @@ public class MainMenu : MonoBehaviour
     }
     public void PlayPressed()
     {
-        SceneLoader.Instance.LoadScene("Level Select");
+        SceneLoader.Instance.LoadScene(Scene.LEVEL_SELECT);
     }
 }

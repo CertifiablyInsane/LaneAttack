@@ -45,9 +45,8 @@ public class GameManager : PersistentSingleton<GameManager>
     }
     public static void LoadLevel(LevelData level)
     {
-        print("Loading a Level");
         currentLevel = level;
-        SceneLoader.Instance.LoadScene("Level");
+        SceneLoader.Instance.LoadScene(Scene.LEVEL);
     }
     public static void CreateNewFile(string username)
     {

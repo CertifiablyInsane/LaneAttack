@@ -9,6 +9,7 @@ public class RadioButtonGroup : MonoBehaviour
     [SerializeField] private bool onlyTriggerEventOnConfirm = false;
     [SerializeField] private bool selectFirstButtonOnStart = false;
     [SerializeField] private ButtonEventPair[] buttonEventPairs;
+    [SerializeField] private Color unselectedColor;
     [SerializeField] private Color selectedColor;
 
     private ButtonEventPair _selectedButton;
@@ -24,7 +25,8 @@ public class RadioButtonGroup : MonoBehaviour
         {   
             // Set selected as first
             _selectedButton = buttonEventPairs[0];
-            if(!onlyTriggerEventOnConfirm)
+            _selectedButton.button.SetColor(selectedColor);
+            if (!onlyTriggerEventOnConfirm)
             {
                 // Immediately activate first if not waiting for a confirm
                 _selectedButton.action?.Invoke();
@@ -35,8 +37,12 @@ public class RadioButtonGroup : MonoBehaviour
     {
         if(_selectedButton.button == button)
             return;     // Do nothing if already selected.
+        if(_selectedButton.button != null)
+            _selectedButton.button.SetColor(unselectedColor);
 
         _selectedButton = buttonEventPairs[button.id];
+        _selectedButton.button.SetColor(selectedColor);
+
         if(!onlyTriggerEventOnConfirm)
             buttonEventPairs[button.id].action?.Invoke();
     }

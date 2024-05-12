@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class UpgradesStation : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [Header("Pointers")]
+    [SerializeField] private AdvancedButton backButton;
+
+    private void Start()
     {
-        
+        backButton.AddOnClick(BackPressed);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void BackPressed(AdvancedButton _)
     {
-        
+        SceneLoader.Instance.LoadScene(Scene.LEVEL_SELECT);
+
     }
 }

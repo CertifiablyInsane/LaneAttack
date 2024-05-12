@@ -50,6 +50,6 @@ public class AdvancedButton : MonoBehaviour
     {
         enabled = false;
         button.enabled = false;
-        SetColor(COLOR_ENABLED);
+        SetColor(COLOR_DISABLED);
     }
 }

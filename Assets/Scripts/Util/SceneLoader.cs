@@ -20,6 +20,11 @@ public class SceneLoader : Singleton<SceneLoader>
         GameManager.UnPause();
         StartCoroutine(C_LoadScene(name));
     }
+    public void LoadScene(Scene scene)
+    {
+        GameManager.UnPause();
+        StartCoroutine(C_LoadScene(Enum.SceneToString(scene)));
+    }
     public void ReloadScene()
     {
         GameManager.UnPause();

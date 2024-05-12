@@ -45,10 +45,10 @@ public class LevelSelect : MonoBehaviour
     }
     public void BackPressed(AdvancedButton _)
     {
-        SceneLoader.Instance.LoadScene("Main Menu");
+        SceneLoader.Instance.LoadScene(Scene.MAIN_MENU);
     }
     public void UpgradesPressed(AdvancedButton _)
     {
-        SceneLoader.Instance.LoadScene("Upgrades");
+        SceneLoader.Instance.LoadScene(Scene.UPGRADES);
     }
 }

@@ -26,6 +26,10 @@ public class LevelUI : Singleton<LevelUI>
     [SerializeField] private AdvancedButton pauseLevelSelectButton;
     [SerializeField] private AdvancedButton pauseResumeButton;
 
+    [Header("Overlay Screen Data")]
+    [SerializeField] private TextMeshProUGUI levelCompletePointsText;
+    [SerializeField] private TextMeshProUGUI levelFailPointsText;
+
     private void Start()
     {
         levelNameUI.text = "Level " + GameManager.currentLevel.levelName;
@@ -42,10 +46,18 @@ public class LevelUI : Singleton<LevelUI>
     private void OnEnable()
     {
         LevelManager.OnMoneyChanged += OnMoneyChanged;
+        LevelManager.OnPointsCalculated += OnPointsCalculated;
     }
     private void OnDisable()
     {
         LevelManager.OnMoneyChanged -= OnMoneyChanged;
+        LevelManager.OnPointsCalculated -= OnPointsCalculated;
+    }
+    private void OnPointsCalculated(int amount)
+    {
+        string s = "Gained " + amount.ToString() + " Points";
+        levelCompletePointsText.text = s;
+        levelFailPointsText.text = s;
     }
     private void OnMoneyChanged(int amount)
     {
@@ -67,7 +79,7 @@ public class LevelUI : Singleton<LevelUI>
     }
     public void LevelSelectButtonPress(AdvancedButton _)
     {
-        SceneLoader.Instance.LoadScene("Level Select");
+        SceneLoader.Instance.LoadScene(Scene.LEVEL_SELECT);
     }
     public void PauseMenuButtonPress(AdvancedButton _)
     {
@@ -81,7 +93,6 @@ public class LevelUI : Singleton<LevelUI>
     }
     public void UpgradesButtonPress(AdvancedButton _)
     {
-        // SceneLoader.Instance.LoadScene("Upgrades")
-        Debug.LogWarning("Upgrades Menu Not Implemented! Will not load scene.");
+        SceneLoader.Instance.LoadScene(Scene.UPGRADES);
     }
 }
