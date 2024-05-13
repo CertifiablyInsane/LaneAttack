@@ -23,7 +23,7 @@ public class MainMenu : MonoBehaviour
     }
     private void OnChangeUser(string username)
     {
-        currentUserText.text = "User:\n" + username;
+        currentUserText.text = "User : " + username;
     }
     public void PlayPressed()
     {

@@ -1,3 +1,4 @@
+using UnityEngine;
 public enum Lane
 {
     BOT,
@@ -17,6 +18,30 @@ public enum Scene
     LEVEL_SELECT,
     UPGRADES,
     LEVEL
+}
+public enum UIPositionerType
+{
+    RELATIVE_TO_SCREEN,
+    RELATIVE_TO_PARENT,
+    RELATIVE_TO_SELF,
+}
+public enum SquareResizeType
+{
+    UNCONSTRAINED,
+    HEIGHT_MATCHES_WIDTH,
+    WIDTH_MATCHES_HEIGHT
+}
+public enum AnchorPresets
+{
+    TOP_LEFT,
+    TOP_CENTER,
+    TOP_RIGHT,
+    BOTTOM_LEFT,
+    BOTTOM_CENTER,
+    BOTTOM_RIGHT,
+    CENTER_LEFT,
+    CENTER,
+    CENTER_RIGHT
 }
 public static class Enum
 {
@@ -40,5 +65,21 @@ public static class Enum
             Scene.LEVEL => "Level",
             _ => throw new System.Exception("Error: Scene Enum does not have an equivalent string!"),
         };
+    }
+    public static AnchorPresets GetAnchorPresetFromVector(Vector2 pos)
+    {
+        if (pos == Vector2.zero) return AnchorPresets.BOTTOM_LEFT;
+        if (pos == Vector2.right * .5f) return AnchorPresets.BOTTOM_CENTER;
+        if (pos == Vector2.right) return AnchorPresets.BOTTOM_RIGHT;
+        if (pos == Vector2.up) return AnchorPresets.TOP_LEFT;
+        if (pos == new Vector2(.5f, 1f)) return AnchorPresets.TOP_CENTER;
+        if (pos == Vector2.one) return AnchorPresets.TOP_RIGHT;
+        if (pos == Vector2.up * .5f) return AnchorPresets.CENTER_LEFT;
+        if (pos == Vector2.one * .5f) return AnchorPresets.CENTER;
+        if (pos == new Vector2(1f, .5f)) return AnchorPresets.CENTER_RIGHT;
+
+        // If no match
+        Debug.LogWarning("No Anchor Preset match could be found");
+        return AnchorPresets.CENTER;
     }
 }
