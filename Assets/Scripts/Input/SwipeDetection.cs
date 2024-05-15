@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 public class SwipeDetection : Singleton<SwipeDetection>
 {
     public delegate void Swipe(Vector2 direction);
-    public event Swipe OnSwipe;
+    public static event Swipe OnSwipe;
 
     [SerializeField] private float minSwipeDistance = 100f;
     [SerializeField] private float holdTimeout = 1.0f;

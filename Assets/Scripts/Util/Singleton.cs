@@ -23,7 +23,7 @@ public class Singleton<T> : MonoBehaviour
                 }
                 if(_instance == null)
                 {
-                    Debug.LogError("Tried to access a singleton" + typeof(T).Name + " when one does not exist in the scene.");
+                    Debug.LogError("Tried to access a singleton " + typeof(T).Name + " when one does not exist in the scene.");
                 }
             }
             return _instance;

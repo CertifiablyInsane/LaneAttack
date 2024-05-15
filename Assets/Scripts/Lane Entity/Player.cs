@@ -38,11 +38,11 @@ public class Player : LaneEntity
     }
     private void OnEnable()
     {
-        SwipeDetection.Instance.OnSwipe += HandleSwipe;
+        SwipeDetection.OnSwipe += HandleSwipe;
     }
     private void OnDisable()
     {
-        SwipeDetection.Instance.OnSwipe -= HandleSwipe;
+        SwipeDetection.OnSwipe -= HandleSwipe;
     }
 
     private void Update()
