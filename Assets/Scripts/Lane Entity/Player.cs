@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class Player : LaneEntity
+public class Player : LaneEntity, IUpgradable
 {
     [Header("Player Data")]
     [SerializeField] private float attackDistance;
@@ -33,6 +33,7 @@ public class Player : LaneEntity
         rb = GetComponent<Rigidbody2D>();
         SetLane(Lane.MID);
 
+        SetStats(GameManager.saveInfo.playerLevel);
         AssignAnimationIDs();
         AssignAnimationEvents();
     }
@@ -118,5 +119,18 @@ public class Player : LaneEntity
     private void Anim_DamageFramePassed()
     {
         _damageFramePassed = true;
+    }
+
+    public void SetStats(int level)
+    {
+        PlayerUpgrade stats = UpgradeData.PlayerUpgrades[level];
+
+        Debug.Log("Setting Player to Level " + stats.level);
+
+        maxHealth = stats.health;
+        _health = maxHealth;
+        speed = stats.speed;
+        attackDamage = stats.damage;
+        GetComponent<AutoHeal>().SetStats(stats.healDelay, stats.healInterval);
     }
 }

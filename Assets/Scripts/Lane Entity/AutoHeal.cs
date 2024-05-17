@@ -55,4 +55,10 @@ public class AutoHeal : MonoBehaviour
             yield return new WaitForSeconds(tickDelaySeconds);
         }
     }
+
+    public void SetStats(float healDelay, float tickDelaySeconds)
+    {
+        this.healDelay = healDelay;
+        this.tickDelaySeconds = tickDelaySeconds;
+    }
 }

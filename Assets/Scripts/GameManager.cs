@@ -13,14 +13,39 @@ public class GameManager : PersistentSingleton<GameManager>
     // Events
     public delegate void SaveEvent(string username);
     public static event SaveEvent OnChangedUser;
+    public delegate void PointsEvent(int amount);
+    public static event PointsEvent OnPointsChanged;
+    public delegate void LevelEvent(int level);
+    public static event LevelEvent OnLevelIncremented;
+    public delegate void UpgradeEvent(int level);
+    public static event UpgradeEvent OnPlayerUpgraded;
+    public static event UpgradeEvent OnBasicUnitUpgraded;
+    // Do events for the rest of the things that can upgraded
+
     public static string SAVEFILE_DATAPATH { get; private set; }
     // Savefile Filename changes based on current file
     public static string PERSISTENT_DATAPATH { get; private set; }
     public static string PERSISTENT_FILENAME {  get; private set; }
     private new void Awake()
     {
+#if UNITY_EDITOR
+
+        Debug.Log("Running on Unity Editor");
+        SAVEFILE_DATAPATH = Path.Combine(Application.dataPath, "Resources");
+        PERSISTENT_DATAPATH = Path.Combine(Application.dataPath, "Resources", "Persistent");
+
+#elif UNITY_ANDROID
+
+        Debug.Log("Running on Unity Android");
         SAVEFILE_DATAPATH = Path.Combine(Application.persistentDataPath, "Resources");
         PERSISTENT_DATAPATH = Path.Combine(Application.persistentDataPath, "Resources", "Persistent");
+
+#else
+
+        Debug.LogWarning("No Directive in place for this Build Type!");
+
+#endif
+
         PERSISTENT_FILENAME = JsonFilename("PersistentInfo");
         if (!Directory.Exists(SAVEFILE_DATAPATH))
             Directory.CreateDirectory(SAVEFILE_DATAPATH);
@@ -55,6 +80,8 @@ public class GameManager : PersistentSingleton<GameManager>
             username = username,
             level = 1,
             points = 0,
+
+            playerLevel = 0,
         };
         string json = JsonUtility.ToJson(newSave);
         string fileName = JsonFilename(username);
@@ -161,5 +188,29 @@ public class GameManager : PersistentSingleton<GameManager>
             }
         }
         return usernames;
+    }
+    public static void AddPoints(int amount)
+    {
+        saveInfo.points += amount;
+        OnPointsChanged?.Invoke(saveInfo.points);
+    }
+    public static void IncrementLevel()
+    {
+        saveInfo.level++;
+        OnLevelIncremented?.Invoke(saveInfo.level);
+    }
+    public static void Upgrade(Upgradable upgradable)
+    {
+        switch (upgradable)
+        {
+            case Upgradable.PLAYER:
+                saveInfo.playerLevel++;
+                OnPlayerUpgraded?.Invoke(saveInfo.playerLevel);
+                break;
+            case Upgradable.UNIT_BASICUNIT:
+                saveInfo.basicUnitLevel++;
+                OnBasicUnitUpgraded?.Invoke(saveInfo.basicUnitLevel);
+                break;
+        }
     }
 }

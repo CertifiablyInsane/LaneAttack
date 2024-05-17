@@ -52,10 +52,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 10
-    m_Right: 10
-    m_Top: 10
-    m_Bottom: 10
+    m_Left: 5
+    m_Right: 5
+    m_Top: 5
+    m_Bottom: 5
   m_ChildAlignment: 4
   m_Spacing: 0
   m_ChildForceExpandWidth: 1
@@ -160,7 +160,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3921795899753128603, guid: 8c2b04e7cdd1e2248a6a501d45e650ba, type: 3}
       propertyPath: m_fontSize
-      value: 71.6
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 3921795899753128603, guid: 8c2b04e7cdd1e2248a6a501d45e650ba, type: 3}
       propertyPath: m_enableAutoSizing
@@ -322,11 +322,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2786308363399799102, guid: a400c671163d6ac44b8e04d6f3a3769d, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 162
+      value: 180.5
       objectReference: {fileID: 0}
     - target: {fileID: 2786308363399799102, guid: a400c671163d6ac44b8e04d6f3a3769d, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 162
+      value: 180.5
       objectReference: {fileID: 0}
     - target: {fileID: 2786308363399799102, guid: a400c671163d6ac44b8e04d6f3a3769d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -420,8 +420,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28fe7a0d536558140943f502a833c6db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  widthPercent: 90
-  heightPercent: 90
+  widthPercent: 95
+  heightPercent: 95
   type: 1
   resizeBehaviour: 2
 --- !u!224 &5612353170529797681 stripped
@@ -561,7 +561,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3921795899753128603, guid: 8c2b04e7cdd1e2248a6a501d45e650ba, type: 3}
       propertyPath: m_fontSize
-      value: 71.6
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 3921795899753128603, guid: 8c2b04e7cdd1e2248a6a501d45e650ba, type: 3}
       propertyPath: m_margin.w
@@ -573,7 +573,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3921795899753128603, guid: 8c2b04e7cdd1e2248a6a501d45e650ba, type: 3}
       propertyPath: m_margin.z
-      value: 20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3921795899753128603, guid: 8c2b04e7cdd1e2248a6a501d45e650ba, type: 3}
       propertyPath: m_enableAutoSizing
@@ -830,12 +830,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 10
-    m_Right: 10
-    m_Top: 10
-    m_Bottom: 10
+    m_Left: 5
+    m_Right: 5
+    m_Top: 5
+    m_Bottom: 5
   m_ChildAlignment: 3
-  m_Spacing: 15
+  m_Spacing: 8
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 1

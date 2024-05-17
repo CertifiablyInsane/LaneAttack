@@ -110,11 +110,11 @@ public class LevelManager : Singleton<LevelManager>
         if(GameManager.saveInfo.level == GameManager.currentLevel.levelNumber)
         {
             // If we just beat the current level
-            GameManager.saveInfo.level += 1;    // Then increment the current level
+            GameManager.IncrementLevel();
         }
         int points = CalculateLevelPoints(true, true);
         OnPointsCalculated?.Invoke(points);     // Anything that relies wants to know the amount of points calculated can use this event
-        GameManager.saveInfo.points += points;
+        GameManager.AddPoints(points);
         GameManager.Save(); // Save the file
     }
 
@@ -130,17 +130,12 @@ public class LevelManager : Singleton<LevelManager>
         overlayScreens.SetScreen(1);
         int points = CalculateLevelPoints(true, true);
         OnPointsCalculated?.Invoke(points);     // Anything that relies wants to know the amount of points calculated can use this event
-        GameManager.saveInfo.points += points;
+        GameManager.AddPoints(points);
         GameManager.Save();
     }
 
     private int CalculateLevelPoints(bool levelCompleted, bool doRandom = true)
     {
-        float wavePoints = 0f;
-        float enemyPoints = 0f;
-        float levelMod = 0f;
-        float completedMod = 0f;
-        float randomMod = 0f;
 
         // CALCULATE WAVE POINTS //
         float introDifficulty = 0f;
@@ -149,16 +144,17 @@ public class LevelManager : Singleton<LevelManager>
         {
             introDifficulty += wave;    // Get total amount of points in the intro
         }
-        introDifficulty = introDifficulty / data.wavesIntro.Length; // Divide this by the number of waves
+        introDifficulty /= data.wavesIntro.Length; // Divide this by the number of waves
         foreach (int wave in data.wavesLoop)
         {
             loopDifficulty += wave;     // Get total amount of points in the loop
         }
-        loopDifficulty = loopDifficulty / data.wavesLoop.Length;   // Divide this by the number of waves
-        // Multiply all wave points, then divide by the time between each wave
-        wavePoints = introDifficulty * loopDifficulty / data.timeBetweenWaves * 100f; 
+        loopDifficulty /= data.wavesLoop.Length;   // Divide this by the number of waves
+                                                                   // Multiply all wave points, then divide by the time between each wave
+        float wavePoints = introDifficulty * loopDifficulty / data.timeBetweenWaves * 100f;
 
         // CALCULATE ENEMY POINTS //
+        float enemyPoints = 0f;
         float totalWeight = 0;
         foreach(EnemyWeight e in data.enemyWeights)
         {
@@ -173,13 +169,13 @@ public class LevelManager : Singleton<LevelManager>
         enemyPoints *= 50f;
 
         // CALCULATE LEVEL MODIFIER //
-        levelMod = 1 + (data.levelNumber / 10f);
+        float levelMod = 1 + data.levelNumber / 10f;
 
         // CALCULATE COMPLETION MODIFIER //
-        completedMod = levelCompleted ? 1f : 0.01f;
+        float completedMod = levelCompleted ? 1f : 0.01f;
 
         // CALCULATE RANDOM MODIFIER //
-        randomMod = doRandom ? Random.Range(-0.10f, 0.10f) : 0f; // + or - 10%
+        float randomMod = doRandom ? Random.Range(-0.10f, 0.10f) : 0f;
 
         // RESULT //
         float result = (wavePoints + enemyPoints) * levelMod * completedMod;

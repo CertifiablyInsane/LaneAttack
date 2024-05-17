@@ -43,6 +43,12 @@ public enum AnchorPresets
     CENTER,
     CENTER_RIGHT
 }
+public enum Upgradable
+{
+    PLAYER,
+    UNIT_BASICUNIT,
+    FORT
+}
 public static class Enum
 {
     public static string LaneToString(Lane lane)
