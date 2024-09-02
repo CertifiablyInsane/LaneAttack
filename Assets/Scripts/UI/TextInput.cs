@@ -18,7 +18,7 @@ public class TextInput : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("Input Text must be Alphanumeric! Event will not be triggered! (Entered Text: " + text + ")");
+            //Debug.LogWarning("Input Text must be Alphanumeric! Event will not be triggered! (Entered Text: " + text + ")");
         }
     }
 }

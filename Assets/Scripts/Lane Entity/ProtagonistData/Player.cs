@@ -33,7 +33,7 @@ public class Player : LaneEntity, IUpgradable
         rb = GetComponent<Rigidbody2D>();
         SetLane(Lane.MID);
 
-        SetStats(GameManager.saveInfo.playerLevel);
+        SetStats(GameManager.SaveInfo.robotPlayerLevel);
         AssignAnimationIDs();
         AssignAnimationEvents();
     }
@@ -123,14 +123,14 @@ public class Player : LaneEntity, IUpgradable
 
     public void SetStats(int level)
     {
-        PlayerUpgrade stats = UpgradeData.PlayerUpgrades[level];
+        Upgrade stats = UpgradeData.RobotPlayerUpgrades[level];
 
         Debug.Log("Setting Player to Level " + stats.level);
 
-        maxHealth = stats.health;
+        maxHealth = (int)stats.health;
         _health = maxHealth;
         speed = stats.speed;
-        attackDamage = stats.damage;
+        attackDamage = (int)stats.damage;
         GetComponent<AutoHeal>().SetStats(stats.healDelay, stats.healInterval);
     }
 }

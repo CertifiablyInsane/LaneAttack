@@ -10,9 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 861f15d8b3b27e645875fadf08b8f751, type: 3}
-  m_Name: BasicUnit
+  m_Name: RobotSwarmUnit
   m_EditorClassIdentifier: 
-  spawnEntity: {fileID: 2564107368727496018, guid: 82b4e775ee492c04b9bcd3a2b4b19516, type: 3}
-  icon: {fileID: -1225602830, guid: efa7f4cd6c30a274c8c2848003269c38, type: 3}
-  cost: 2
-  cooldownTime: 3
+  spawnEntity: {fileID: 2564107368727496018, guid: e14b9660c860978488aaf2301e351ac0, type: 3}
+  displayName: Robot Swarm Unit
+  upgradableClass: 2
+  icon: {fileID: -326737553, guid: efa7f4cd6c30a274c8c2848003269c38, type: 3}
+  cost: 4
+  cooldownTime: 5

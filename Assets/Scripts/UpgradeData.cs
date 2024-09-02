@@ -4,30 +4,25 @@ using UnityEngine;
 
 public static class UpgradeData
 {
-    private static PlayerUpgrade[] _playerUpgrades;
-    public static PlayerUpgrade[] PlayerUpgrades
+    public static int UpgradeVarsToIgnoreForStatDisplay = 2;
+    /*
+     *  ROBOT PLAYER SECTION
+     */
+
+    // Robot Player
+
+    private static Upgrade[] _robotPlayerUpgrades;
+    public static Upgrade[] RobotPlayerUpgrades
     {
         get
         {
-            _playerUpgrades ??= CreatePlayerUpgrades();
-            return _playerUpgrades;
+            _robotPlayerUpgrades ??= CreateRobotPlayerUpgrades();
+            return _robotPlayerUpgrades;
         }
     }
-    private static BasicUnitUpgrade[] _basicUnitUpgrades;
-    public static BasicUnitUpgrade[] BasicUnitUpgrades
+    private static Upgrade[] CreateRobotPlayerUpgrades()
     {
-        get
-        {
-            _basicUnitUpgrades ??= CreateBasicUnitUpgrades();
-            return _basicUnitUpgrades;
-        }
-    }
-
-
-    // Table Creation Section
-    private static PlayerUpgrade[] CreatePlayerUpgrades()
-    {
-        return new PlayerUpgrade[]
+        return new Upgrade[]
         {
             // LEVEL 01
             new() {
@@ -107,13 +102,24 @@ public static class UpgradeData
         };
     }
 
-    private static BasicUnitUpgrade[] CreateBasicUnitUpgrades()
+    // Robot Basic Unit
+
+    private static Upgrade[] _robotBasicUnitUpgrades;
+    public static Upgrade[] RobotBasicUnitUpgrades
     {
-        return new BasicUnitUpgrade[]
+        get
+        {
+            _robotBasicUnitUpgrades ??= CreateRobotBasicUnitUpgrades();
+            return _robotBasicUnitUpgrades;
+        }
+    }
+    private static Upgrade[] CreateRobotBasicUnitUpgrades()
+    {
+        return new Upgrade[]
         {
             // LEVEL 01
             new() {
-                level = 1,  pointsForNextUpgrade = 100, 
+                level = 1,  pointsForNextUpgrade = 100,
                 health = 3, damage = 1, speed = 2,
             },
             // LEVEL 02
@@ -163,23 +169,59 @@ public static class UpgradeData
             },
         };
     }
-}
 
-public struct PlayerUpgrade
+    // Robot Swarm Unit
+
+    // Robot Ranged Unit
+
+    // Robot Knockback Unit
+
+    // Robot Ranged Unit
+
+
+    /*
+     *  MARTIAN PLAYER SECTION
+     */
+
+    public static Upgrade[] GetUpgradeArrayFromUnitData(UnitData data)
+    {
+        UnitDataHelper udh = GameManager.UnitData;
+
+        return data switch
+        {
+            var _ when data.Equals(udh.robotBasicUnitData) => RobotBasicUnitUpgrades,
+            var _ when data.Equals(udh.robotSwarmUnitData) => RobotBasicUnitUpgrades,
+            var _ when data.Equals(udh.robotRangedUnitData) => null,
+            var _ when data.Equals(udh.robotKnockbackUnitData) => null,
+            var _ when data.Equals(udh.robotSupportUnitData) => null,
+            var _ when data.Equals(udh.martianBasicUnitData) => null,
+            var _ when data.Equals(udh.martianHeavyUnitData) => null,
+            var _ when data.Equals(udh.martianRangedUnitData) => null,
+            var _ when data.Equals(udh.martianDodgerUnitData) => null,
+            var _ when data.Equals(udh.martianSupportUnitData) => null,
+            _ => throw new System.Exception("Could Not Get Upgrade Array from Unit Data!"),
+        };
+    }
+    public static Upgrade[] GetUpgradeArrayFromProtagonistData(ProtagonistData data)
+    {
+        ProtagonistDataHelper pdh = GameManager.ProtagonistData;
+        return data switch
+        {
+            var _ when data.Equals(pdh.robotProtagonistData) => RobotPlayerUpgrades,
+            var _ when data.Equals(pdh.martianProtagonistData) => null,
+            _ => throw new System.Exception("Could Not Get Upgrade Array from Protagonist Data!"),
+        };
+    }
+}
+public struct Upgrade
 {
-    public int level;
+    // IGNORE IN UNIT STAT DISPLAY
+    public int level;               
     public int pointsForNextUpgrade;
+    // DISPLAY IN UNIT STAT DISPLAY
     public int health;
     public int damage;
+    public float speed;
     public float healDelay;
     public float healInterval;
-    public float speed;
-}
-public struct BasicUnitUpgrade
-{
-    public int level;
-    public int pointsForNextUpgrade;
-    public int health;
-    public int damage;
-    public float speed;
 }

@@ -577,9 +577,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2474303034038407307, guid: a400c671163d6ac44b8e04d6f3a3769d, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6916267007391408613}
-    - targetCorrespondingSourceObject: {fileID: 2474303034038407307, guid: a400c671163d6ac44b8e04d6f3a3769d, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 3900090540765419344}
   m_SourcePrefab: {fileID: 100100000, guid: a400c671163d6ac44b8e04d6f3a3769d, type: 3}
 --- !u!224 &4268167508177001374 stripped
@@ -592,22 +589,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2474303034038407307, guid: a400c671163d6ac44b8e04d6f3a3769d, type: 3}
   m_PrefabInstance: {fileID: 2130597406635735712}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6916267007391408613
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4595671140053281323}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28fe7a0d536558140943f502a833c6db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  widthPercent: 50
-  heightPercent: 90
-  type: 0
-  resizeBehaviour: 0
 --- !u!114 &3900090540765419344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -905,9 +886,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2474303034038407307, guid: a400c671163d6ac44b8e04d6f3a3769d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8417304098350380355}
-    - targetCorrespondingSourceObject: {fileID: 2474303034038407307, guid: a400c671163d6ac44b8e04d6f3a3769d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 4975178430815767786}
   m_SourcePrefab: {fileID: 100100000, guid: a400c671163d6ac44b8e04d6f3a3769d, type: 3}
 --- !u!1 &747126633736101927 stripped
 GameObject:
@@ -940,22 +918,6 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!114 &4975178430815767786
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 747126633736101927}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28fe7a0d536558140943f502a833c6db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  widthPercent: 90
-  heightPercent: 61.5
-  type: 1
-  resizeBehaviour: 0
 --- !u!224 &1054645534766141842 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2786308363399799102, guid: a400c671163d6ac44b8e04d6f3a3769d, type: 3}

@@ -29,7 +29,7 @@ public class LevelSelect : MonoBehaviour
             b.AddOnClick(SelectLevel);
 
             // Disable if not unlocked yet
-            if(GameManager.saveInfo.level >= levels[i].levelNumber)
+            if(GameManager.SaveInfo.level >= levels[i].levelNumber)
             {
                 b.Enable();
             }

@@ -14,7 +14,7 @@ public class EnemySpawnAlgorithm : Singleton<EnemySpawnAlgorithm>
 
     public void Start()
     {
-        data = GameManager.currentLevel;
+        data = GameManager.CurrentLevel;
         random = new Random(data.levelNumber);
         StartCoroutine(C_WaveLoop());
     }

@@ -31,7 +31,7 @@ public class UserSelect : MonoBehaviour
             buttons.Add(b);
             fileNames.Add(usernames[i]);
 
-            if(GameManager.saveInfo != null && GameManager.saveInfo.username == name)
+            if(GameManager.SaveInfo != null && GameManager.SaveInfo.username == name)
             {
                 // This is our current file
                 currentFile = i;

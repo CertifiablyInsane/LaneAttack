@@ -43,12 +43,15 @@ public enum AnchorPresets
     CENTER,
     CENTER_RIGHT
 }
-public enum Upgradable
+public enum Stat
 {
-    PLAYER,
-    UNIT_BASICUNIT,
-    FORT
+    HEALTH,
+    DAMAGE,
+    SPEED,
+    HEAL_DELAY,
+    HEAL_INTERVAL
 }
+
 public static class Enum
 {
     public static string LaneToString(Lane lane)
@@ -72,20 +75,16 @@ public static class Enum
             _ => throw new System.Exception("Error: Scene Enum does not have an equivalent string!"),
         };
     }
-    public static AnchorPresets GetAnchorPresetFromVector(Vector2 pos)
+    public static string StatToString(Stat stat)
     {
-        if (pos == Vector2.zero) return AnchorPresets.BOTTOM_LEFT;
-        if (pos == Vector2.right * .5f) return AnchorPresets.BOTTOM_CENTER;
-        if (pos == Vector2.right) return AnchorPresets.BOTTOM_RIGHT;
-        if (pos == Vector2.up) return AnchorPresets.TOP_LEFT;
-        if (pos == new Vector2(.5f, 1f)) return AnchorPresets.TOP_CENTER;
-        if (pos == Vector2.one) return AnchorPresets.TOP_RIGHT;
-        if (pos == Vector2.up * .5f) return AnchorPresets.CENTER_LEFT;
-        if (pos == Vector2.one * .5f) return AnchorPresets.CENTER;
-        if (pos == new Vector2(1f, .5f)) return AnchorPresets.CENTER_RIGHT;
-
-        // If no match
-        Debug.LogWarning("No Anchor Preset match could be found");
-        return AnchorPresets.CENTER;
+        return stat switch
+        {
+            Stat.HEALTH => "HEALTH",
+            Stat.DAMAGE => "DAMAGE",
+            Stat.SPEED => "SPEED",
+            Stat.HEAL_DELAY => "AUTO-HEAL DELAY",
+            Stat.HEAL_INTERVAL => "AUTO-HEAL RATE",
+            _ => throw new System.Exception("Error: Stat Enum does not have an equivalent string!")
+        };
     }
 }

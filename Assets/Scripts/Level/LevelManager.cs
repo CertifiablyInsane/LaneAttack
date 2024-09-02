@@ -39,7 +39,7 @@ public class LevelManager : Singleton<LevelManager>
 
     private void Start()
     {
-        data = GameManager.currentLevel;
+        data = GameManager.CurrentLevel;
         spawnAlgorithm = GetComponent<EnemySpawnAlgorithm>();
 
         LevelUI.Instance.GenerateUnitButtons(unitData);
@@ -107,7 +107,7 @@ public class LevelManager : Singleton<LevelManager>
         }
         overlayScreens.SetScreen(0);
         // UPDATE GAMEMANAGER
-        if(GameManager.saveInfo.level == GameManager.currentLevel.levelNumber)
+        if(GameManager.SaveInfo.level == GameManager.CurrentLevel.levelNumber)
         {
             // If we just beat the current level
             GameManager.IncrementLevel();

@@ -32,7 +32,7 @@ public class LevelUI : Singleton<LevelUI>
 
     private void Start()
     {
-        levelNameUI.text = "Level " + GameManager.currentLevel.levelName;
+        levelNameUI.text = "Level " + GameManager.CurrentLevel.levelName;
         failRestartButton.AddOnClick(RestartButtonPress);           // Fail Menu => Restart Level
         failLevelSelectButton.AddOnClick(LevelSelectButtonPress);   // Fail Menu => Level Select
         failUpgradesButton.AddOnClick(UpgradesButtonPress);         // Fail Menu => Upgrades Station

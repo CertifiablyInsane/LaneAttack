@@ -75,7 +75,6 @@ GameObject:
   - component: {fileID: 986262343824112499}
   - component: {fileID: 1056361666349886633}
   - component: {fileID: 8563543237402139957}
-  - component: {fileID: 2742014999134561035}
   m_Layer: 5
   m_Name: Player Model
   m_TagString: Untagged
@@ -140,22 +139,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &2742014999134561035
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8353619198991960883}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28fe7a0d536558140943f502a833c6db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  widthPercent: 70
-  heightPercent: 50
-  type: 1
-  resizeBehaviour: 1
 --- !u!1001 &749650703849627071
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -350,7 +333,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6274629099022572049, guid: 0df4bf6c47f8db0449832456845221d2, type: 3}
       propertyPath: m_fontSize
-      value: 10
+      value: 64.8
       objectReference: {fileID: 0}
     - target: {fileID: 6448879784708923951, guid: 0df4bf6c47f8db0449832456845221d2, type: 3}
       propertyPath: m_AnchorMax.y
@@ -382,7 +365,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6483879531251075232, guid: 0df4bf6c47f8db0449832456845221d2, type: 3}
       propertyPath: m_fontSize
-      value: 10
+      value: 64.8
       objectReference: {fileID: 0}
     - target: {fileID: 6500304697757797896, guid: 0df4bf6c47f8db0449832456845221d2, type: 3}
       propertyPath: m_fontSize
@@ -392,7 +375,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: HealDelay Number
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3478359356520117683, guid: 0df4bf6c47f8db0449832456845221d2, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -530,9 +514,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2474303034038407307, guid: a400c671163d6ac44b8e04d6f3a3769d, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1135785092102175525}
-    - targetCorrespondingSourceObject: {fileID: 2474303034038407307, guid: a400c671163d6ac44b8e04d6f3a3769d, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 7364538885907385260}
   m_SourcePrefab: {fileID: 100100000, guid: a400c671163d6ac44b8e04d6f3a3769d, type: 3}
 --- !u!1 &2894094018346443810 stripped
@@ -540,22 +521,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2474303034038407307, guid: a400c671163d6ac44b8e04d6f3a3769d, type: 3}
   m_PrefabInstance: {fileID: 756497728633615529}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1135785092102175525
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2894094018346443810}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28fe7a0d536558140943f502a833c6db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  widthPercent: 90
-  heightPercent: 75
-  type: 0
-  resizeBehaviour: 0
 --- !u!114 &7364538885907385260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -772,7 +737,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6274629099022572049, guid: 0df4bf6c47f8db0449832456845221d2, type: 3}
       propertyPath: m_fontSize
-      value: 10
+      value: 53.8
       objectReference: {fileID: 0}
     - target: {fileID: 6448879784708923951, guid: 0df4bf6c47f8db0449832456845221d2, type: 3}
       propertyPath: m_AnchorMax.y
@@ -804,7 +769,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6483879531251075232, guid: 0df4bf6c47f8db0449832456845221d2, type: 3}
       propertyPath: m_fontSize
-      value: 10
+      value: 64.8
       objectReference: {fileID: 0}
     - target: {fileID: 6500304697757797896, guid: 0df4bf6c47f8db0449832456845221d2, type: 3}
       propertyPath: m_fontSize
@@ -814,7 +779,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: HealInterval Number
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3478359356520117683, guid: 0df4bf6c47f8db0449832456845221d2, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1306,7 +1272,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6274629099022572049, guid: 0df4bf6c47f8db0449832456845221d2, type: 3}
       propertyPath: m_fontSize
-      value: 10
+      value: 64.8
       objectReference: {fileID: 0}
     - target: {fileID: 6448879784708923951, guid: 0df4bf6c47f8db0449832456845221d2, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1338,7 +1304,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6483879531251075232, guid: 0df4bf6c47f8db0449832456845221d2, type: 3}
       propertyPath: m_fontSize
-      value: 10
+      value: 64.8
       objectReference: {fileID: 0}
     - target: {fileID: 6500304697757797896, guid: 0df4bf6c47f8db0449832456845221d2, type: 3}
       propertyPath: m_fontSize
@@ -1352,7 +1318,8 @@ PrefabInstance:
       propertyPath: m_ChildControlWidth
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3478359356520117683, guid: 0df4bf6c47f8db0449832456845221d2, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1892,7 +1859,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6274629099022572049, guid: 0df4bf6c47f8db0449832456845221d2, type: 3}
       propertyPath: m_fontSize
-      value: 10
+      value: 64.8
       objectReference: {fileID: 0}
     - target: {fileID: 6448879784708923951, guid: 0df4bf6c47f8db0449832456845221d2, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1924,7 +1891,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6483879531251075232, guid: 0df4bf6c47f8db0449832456845221d2, type: 3}
       propertyPath: m_fontSize
-      value: 10
+      value: 64.8
       objectReference: {fileID: 0}
     - target: {fileID: 6500304697757797896, guid: 0df4bf6c47f8db0449832456845221d2, type: 3}
       propertyPath: m_fontSize
@@ -1934,7 +1901,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Health Number
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3478359356520117683, guid: 0df4bf6c47f8db0449832456845221d2, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -2206,9 +2174,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2474303034038407307, guid: a400c671163d6ac44b8e04d6f3a3769d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1803257934674157721}
-    - targetCorrespondingSourceObject: {fileID: 2474303034038407307, guid: a400c671163d6ac44b8e04d6f3a3769d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3639457689669042778}
   m_SourcePrefab: {fileID: 100100000, guid: a400c671163d6ac44b8e04d6f3a3769d, type: 3}
 --- !u!1 &4663171462471141240 stripped
 GameObject:
@@ -2235,7 +2200,7 @@ MonoBehaviour:
   m_ChildAlignment: 1
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 0, y: 0}
+  m_CellSize: {x: 644.91797, y: 164.84401}
   m_Spacing: {x: 20, y: 20}
   m_Constraint: 1
   m_ConstraintCount: 2
@@ -2255,22 +2220,6 @@ MonoBehaviour:
   cellWidthPercent: 45.9
   type: 2
   cellResizeBehaviour: 0
---- !u!114 &3639457689669042778
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4663171462471141240}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28fe7a0d536558140943f502a833c6db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  widthPercent: 95
-  heightPercent: 90
-  type: 1
-  resizeBehaviour: 0
 --- !u!224 &4920851700404074189 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2786308363399799102, guid: a400c671163d6ac44b8e04d6f3a3769d, type: 3}
@@ -2615,7 +2564,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6274629099022572049, guid: 0df4bf6c47f8db0449832456845221d2, type: 3}
       propertyPath: m_fontSize
-      value: 10
+      value: 64.8
       objectReference: {fileID: 0}
     - target: {fileID: 6448879784708923951, guid: 0df4bf6c47f8db0449832456845221d2, type: 3}
       propertyPath: m_AnchorMax.y
@@ -2647,7 +2596,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6483879531251075232, guid: 0df4bf6c47f8db0449832456845221d2, type: 3}
       propertyPath: m_fontSize
-      value: 10
+      value: 64.8
       objectReference: {fileID: 0}
     - target: {fileID: 6500304697757797896, guid: 0df4bf6c47f8db0449832456845221d2, type: 3}
       propertyPath: m_fontSize
@@ -2657,7 +2606,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Speed Number
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3478359356520117683, guid: 0df4bf6c47f8db0449832456845221d2, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
