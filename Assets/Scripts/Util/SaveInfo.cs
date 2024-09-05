@@ -8,6 +8,19 @@ public class SaveInfo
     public int level;
     public int points;
 
+    // Unit Unlock Status
+    public bool robotBasicUnitUnlocked;
+    public bool robotSwarmUnitUnlocked;
+    public bool robotRangedUnitUnlocked;
+    public bool robotKnockbackUnitUnlocked;
+    public bool robotSupportUnitUnlocked;
+
+    public bool martianBasicUnitUnlocked;
+    public bool martianHeavyUnitUnlocked;
+    public bool martianRangedUnitUnlocked;
+    public bool martianDodgerUnitUnlocked;
+    public bool martianSupportUnitUnlocked;
+
     // Upgrade Levels (START AT 0)
     public int robotPlayerLevel;
     public int robotBasicUnitLevel;

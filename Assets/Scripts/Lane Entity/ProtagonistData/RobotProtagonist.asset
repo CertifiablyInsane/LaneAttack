@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 026be99887db1de4fa76d45ae5bb5f9d, type: 3}
   m_Name: RobotProtagonist
   m_EditorClassIdentifier: 
-  spawnEntity: {fileID: 0}
+  spawnEntity: {fileID: 5405754410472284007, guid: d6f7b3b88be5f534aa81154cb2fd035c, type: 3}
   displayName: Robot Protagonist
-  upgradableClass: 0
-  icon: {fileID: 0}
+  icon: {fileID: -166728753, guid: efa7f4cd6c30a274c8c2848003269c38, type: 3}

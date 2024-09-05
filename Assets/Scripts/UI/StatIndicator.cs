@@ -28,11 +28,11 @@ public class StatIndicator : MonoBehaviour
     {
         return stat switch
         {
-            Stat.HEALTH => damageIcon,
+            Stat.HEALTH => healthIcon,
             Stat.DAMAGE => damageIcon,
-            Stat.SPEED => damageIcon,
-            Stat.HEAL_INTERVAL => damageIcon,
-            Stat.HEAL_DELAY => damageIcon,
+            Stat.SPEED => speedIcon,
+            Stat.HEAL_INTERVAL => healIntervalIcon,
+            Stat.HEAL_DELAY => healDelayIcon,
             _ => throw new System.Exception()
         };
     }

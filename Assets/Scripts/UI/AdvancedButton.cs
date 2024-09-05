@@ -11,6 +11,7 @@ public class AdvancedButton : MonoBehaviour
     [Header("Pointers")]
     [SerializeField] protected Image background;
     [SerializeField] protected TextMeshProUGUI label;
+    [SerializeField] protected Image icon;
     [SerializeField] protected Button button;
     [Header("Colours")]
     [SerializeField] protected Color COLOR_ENABLED;
@@ -30,11 +31,17 @@ public class AdvancedButton : MonoBehaviour
     }
     public void SetText(string text)
     {
-        label.text = text;
+        if (label != null)
+            label.text = text;
     }
     public void SetID(int id)
     {
         this.id = id;
+    }
+    public void SetIcon(Sprite spr)
+    {
+        if (icon != null)
+            icon.sprite = spr;
     }
     public void SetColor(Color color)
     {

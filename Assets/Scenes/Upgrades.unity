@@ -1272,6 +1272,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Basic Unit Button
       objectReference: {fileID: 0}
+    - target: {fileID: 7203635834760139222, guid: b0fa3aadb87aeb8478cd311e25705c26, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1582,8 +1586,8 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  unselectedColor: {r: 0.5647059, g: 0.9058824, b: 0.9607844, a: 0}
-  selectedColor: {r: 0.2028302, g: 0.7269754, b: 0.8113208, a: 0}
+  unselectedColor: {r: 0.5647059, g: 0.9058824, b: 0.9607844, a: 1}
+  selectedColor: {r: 0.2028302, g: 0.7269754, b: 0.8113208, a: 1}
 --- !u!1 &1305118140
 GameObject:
   m_ObjectHideFlags: 0
@@ -1702,6 +1706,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backButton: {fileID: 624121165}
   pointsDisplay: {fileID: 720122483}
+  robotBasicUnitButton: {fileID: 965766070}
+  robotSwarmUnitButton: {fileID: 1595546734}
+  robotRangedUnitButton: {fileID: 0}
+  robotKnockbackUnitButton: {fileID: 0}
+  robotSupportUnitButton: {fileID: 0}
+  martianBasicUnitButton: {fileID: 0}
+  martianHeavyUnitButton: {fileID: 0}
+  martianRangedUnitButton: {fileID: 0}
+  martianDodgerUnitButton: {fileID: 0}
+  martianSupportUnitButton: {fileID: 0}
 --- !u!224 &1427400449 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2786308363399799102, guid: a400c671163d6ac44b8e04d6f3a3769d, type: 3}

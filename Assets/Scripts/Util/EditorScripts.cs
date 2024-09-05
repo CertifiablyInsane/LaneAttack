@@ -2,10 +2,11 @@
 using System.IO;
 using UnityEditor;
 using UnityEditor.SceneManagement;
+using UnityEngine;
 
 public class EditorScripts : EditorWindow
 {
-    [MenuItem("Play/Playtest _%g")]
+    [MenuItem("Util/Playtest _%g")]
     [System.Obsolete]
     public static void RunMainScene()
     {
@@ -24,12 +25,26 @@ public class EditorScripts : EditorWindow
         }
     }
 
-    [MenuItem("Play/Return To Previous Scene _%h")]
+    [MenuItem("Util/Return To Previous Scene _%h")]
     public static void ReturnToLastScene()
     {
         string lastScene = File.ReadAllText(".lastScene");
         EditorSceneManager.OpenScene(lastScene);
     }
+
+    [MenuItem("Util/Wipe Game Memory")]
+    public static void WipeMemory()
+    {
+        string path = Path.Combine(Application.dataPath, "Resources");
+        if (Directory.Exists(path))
+        {
+            var files = Directory.GetFiles(path);
+            foreach (var file in files)
+            {
+                File.Delete(file);
+            }
+            AssetDatabase.Refresh();
+        }
+    }
 }
 #endif
- //helen has lost a total of 19476483756827 brain cells playing this game and cried a total of one time. 10/10 would mouse again :)

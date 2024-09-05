@@ -149,6 +149,8 @@ public class GameManager : PersistentSingleton<GameManager>
         {
             username = username,
             level = 1,
+            robotBasicUnitUnlocked = true,
+            martianBasicUnitUnlocked = true
         };
         string json = JsonUtility.ToJson(newSave);
         string fileName = JsonFilename(username);

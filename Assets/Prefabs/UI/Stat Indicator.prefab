@@ -341,11 +341,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2786308363399799102, guid: a400c671163d6ac44b8e04d6f3a3769d, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 150
+      value: 190
       objectReference: {fileID: 0}
     - target: {fileID: 2786308363399799102, guid: a400c671163d6ac44b8e04d6f3a3769d, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 150
+      value: 190
       objectReference: {fileID: 0}
     - target: {fileID: 2786308363399799102, guid: a400c671163d6ac44b8e04d6f3a3769d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -377,7 +377,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2786308363399799102, guid: a400c671163d6ac44b8e04d6f3a3769d, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 90
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2786308363399799102, guid: a400c671163d6ac44b8e04d6f3a3769d, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -402,7 +402,11 @@ PrefabInstance:
     - target: {fileID: 8633133229003632632, guid: a400c671163d6ac44b8e04d6f3a3769d, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -1925457189, guid: efa7f4cd6c30a274c8c2848003269c38, type: 3}
+      objectReference: {fileID: 21300000, guid: c3cefdf9d749028409391257fae2e0a2, type: 3}
+    - target: {fileID: 8633133229003632632, guid: a400c671163d6ac44b8e04d6f3a3769d, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8633133229003632632, guid: a400c671163d6ac44b8e04d6f3a3769d, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -769,8 +773,8 @@ MonoBehaviour:
   icon: {fileID: 2055591030714239223}
   header: {fileID: 6274629099022572049}
   value: {fileID: 6483879531251075232}
-  healthIcon: {fileID: 0}
-  damageIcon: {fileID: 0}
-  speedIcon: {fileID: 0}
-  healIntervalIcon: {fileID: 0}
-  healDelayIcon: {fileID: 0}
+  healthIcon: {fileID: 21300000, guid: 3a2aebf2d119e3240a42e03bf67d33cd, type: 3}
+  damageIcon: {fileID: 21300000, guid: c3cefdf9d749028409391257fae2e0a2, type: 3}
+  speedIcon: {fileID: 21300000, guid: 38e23f480c2148b46b6d62c72db59c74, type: 3}
+  healIntervalIcon: {fileID: 21300000, guid: e9e16faa35496df4b9a51b68bc5ebac3, type: 3}
+  healDelayIcon: {fileID: 21300000, guid: a7cac6228316c9f4a9948eaedd847629, type: 3}
